@@ -8,11 +8,11 @@ app = Flask(__name__)
 CORS(app)  # Habilitar CORS para evitar bloqueos
 
 # Carpeta de descargas
-DOWNLOAD_FOLDER = os.path.join(os.getcwd(), "downloads")
+DOWNLOAD_FOLDER = os.path.join(os.getcwd(), "tmp")
 os.makedirs(DOWNLOAD_FOLDER, exist_ok=True)
 
 # Ruta para servir archivos descargados
-@app.route('/downloads/<path:filename>')
+@app.route('/tmp/<path:filename>')
 def serve_file(filename):
     file_path = os.path.join(DOWNLOAD_FOLDER, filename)
 
