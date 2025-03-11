@@ -120,5 +120,10 @@ def download_video():
 def index():
     return send_from_directory('web', 'index.html')
 
+# Ruta para servir archivos estáticos adicionales
+@app.route('/web/<path:filename>')
+def serve_static(filename):
+    return send_from_directory('web', filename)
+
 if __name__ == '__main__':
     app.run(debug=True, port=10000, host='0.0.0.0')
