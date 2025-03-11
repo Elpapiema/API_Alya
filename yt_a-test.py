@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_file, url_for
+from flask import Flask, request, jsonify, send_file, url_for, send_from_directory
 import yt_dlp
 import os
 import re
@@ -114,6 +114,7 @@ def download_video():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
 # Nueva ruta para servir el archivo HTML
 @app.route('/')
 def index():
