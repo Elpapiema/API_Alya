@@ -114,6 +114,10 @@ def download_video():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+# Nueva ruta para servir el archivo HTML
+@app.route('/')
+def index():
+    return send_from_directory('web', 'index.html')
 
 if __name__ == '__main__':
     app.run(debug=True, port=10000, host='0.0.0.0')
