@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Alya</title>
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* Modo claro */
+        body.light {
+            background: linear-gradient(135deg, #f0f0f0, #d9e4ff);
+            color: #222;
+        }
+
+        /* Modo oscuro */
+        body.dark {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #ffffff;
+        }
+
+        /* Encabezado */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.8));
+        }
+
+        /* Interruptor de tema */
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+        }
+
+        /* Estilo del interruptor futurista */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #ff0080, #ff00ff);
+            transition: .4s;
+            border-radius: 34px;
+            box-shadow: 0px 0px 10px rgba(255, 0, 255, 0.6);
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background: linear-gradient(135deg, #007bff, #00ffea);
+            box-shadow: 0px 0px 10px rgba(0, 255, 234, 0.6);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Botones futuristas */
+        .button {
+            padding: 10px 20px;
+            border: none;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 0 10px rgba(0, 198, 255, 0.6);
+        }
+
+        .button:hover {
+            background: linear-gradient(135deg, #ff0080, #ff00ff);
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.8);
+        }
+
+        /* Contenedores futuristas */
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            text-align: center;
+            margin: 20px;
+            color: white;
+        }
+
+        body.light .card {
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            color: black;
+        }
+
+        main {
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Estilos de los inputs */
+        input {
+            width: 80%;
+            max-width: 400px;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        /* Modo claro */
+        body.light input {
+            background: white;
+            color: black;
+            border: 1px solid #ccc;
+        }
+
+        /* Modo oscuro */
+        body.dark input {
+            background: #222;
+            color: white;
+            border: 1px solid #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <!-- Logo obtenido desde un sitio externo -->
+            <img src="https://raw.githubusercontent.com/Elpapiema/API_Alya/refs/heads/main/web/logo.png" alt="Logo API Alya">
+            <h1>API Alya</h1>
+        </div>
+        <div class="theme-toggle">
+            <span>🌞</span>
+            <label class="switch">
+                <input type="checkbox" id="theme-switch">
+                <span class="slider"></span>
+            </label>
+            <span>🌙</span>
+        </div>
+    </header>
+
+    <main>
+        <h2>Opciones de la API</h2>
+
+        <div class="card">
+            <h3>Descargar Video de YouTube</h3>
+            <p>Convierte y descarga videos de YouTube en formato MP4.</p>
+            <a href="/download_video?url=" target="_blank">
+                <button class="button">Implementar</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Descargar Audio de YouTube</h3>
+            <p>Convierte y descarga videos de YouTube en formato MP3.</p>
+            <a href="/download_audio?url=" target="_blank">
+                <button class="button">Implementar</button>
+            </a>
+        </div>
+    </main>
+
+    <script>
+        const themeSwitch = document.getElementById("theme-switch");
+
+        // Función para aplicar el tema
+        function applyTheme(theme) {
+            document.body.classList.toggle("dark", theme === "dark");
+            document.body.classList.toggle("light", theme === "light");
+            localStorage.setItem("theme", theme);
+        }
+
+        // Detectar el tema del sistema o el guardado en localStorage
+        function initTheme() {
+            const savedTheme = localStorage.getItem("theme");
+            const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            
+            if (savedTheme) {
+                applyTheme(savedTheme);
+                themeSwitch.checked = savedTheme === "dark";
+            } else {
+                applyTheme(systemDark ? "dark" : "light");
+                themeSwitch.checked = systemDark;
+            }
+        }
+
+        // Cambiar el tema manualmente
+        themeSwitch.addEventListener("change", () => {
+            const newTheme = themeSwitch.checked ? "dark" : "light";
+            applyTheme(newTheme);
+        });
+
+        // Inicializar el tema
+        initTheme();
+
+        function downloadVideo() {
+            const url = document.getElementById("video-url").value;
+            if (!url) {
+                alert("Por favor, ingrese una URL de YouTube.");
+                return;
+            }
+            window.open(`/download_video?url=${encodeURIComponent(url)}`, "_blank");
+        }
+
+        function downloadAudio() {
+            const url = document.getElementById("audio-url").value;
+            if (!url) {
+                alert("Por favor, ingrese una URL de YouTube.");
+                return;
+            }
+            window.open(`/download_audio?url=${encodeURIComponent(url)}`, "_blank");
+        }
+    </script>
+</body>
+</html>
