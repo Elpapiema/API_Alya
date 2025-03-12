@@ -1,0 +1,46 @@
+/* Estilos específicos para la página de Preguntas Frecuentes */
+
+.faq-container {
+    width: 80%;
+    max-width: 700px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.faq-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.5);
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    background: linear-gradient(45deg, #ff00ff, #0ff);
+    color: white;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.faq-question:hover {
+    background: linear-gradient(45deg, #0ff, #ff00ff);
+}
+
+.faq-answer {
+    padding: 15px;
+    display: none;
+    background: rgba(255, 255, 255, 0.05);
+    border-top: 2px solid cyan;
+}
+
+.faq-answer p {
+    margin: 0;
+    color: white;
+}

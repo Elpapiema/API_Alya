@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalación | AlyaBot</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+    <!-- Botón de menú para móviles -->
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+
+    <div class="sidebar" id="sidebar">
+        <img src="assets/logo.jpeg" alt="Logo de AlyaBot">
+        <h2>AlyaBot</h2>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="install.html">Instalación</a>
+            <a href="comandos.html">Comandos</a>
+            <a href="faq.html">Preguntas Frecuentes</a>
+            <a href="descargas.html">Descargas</a>
+        </nav>
+        <button id="github">📂 GitHub</button>
+        <button id="descargar">⬇ Descargar</button>
+    </div>
+
+    <div class="content">
+        <section id="instalacion">
+            <h2>Guía de Instalación</h2>
+            <p>Aquí aprenderás cómo instalar y configurar AlyaBot en tu servidor.</p>
+
+            <h3>📌 Requisitos</h3>
+            <ul>
+                <li>Node.js 18 o superior</li>
+                <li>Yarn o npm</li>
+                <li>Git</li>
+                <li>FFmpeg e ImageMagick</li>
+            </ul>
+
+            <h3>🔹 Instalación en Linux</h3>
+            <pre><code>
+git clone https://github.com/Elpapiema/AlyaBot_MD.git
+cd AlyaBot_MD
+yarn install
+            </code></pre>
+
+            <h3>🔹 Instalación en Windows</h3>
+            <pre><code>
+git clone https://github.com/Elpapiema/AlyaBot_MD.git
+cd AlyaBot_MD
+npm install
+            </code></pre>
+
+            <h3>🚀 Ejecución</h3>
+            <pre><code>
+node index.js
+            </code></pre>
+
+            <p>¡Y listo! Tu bot estará corriendo en WhatsApp.</p>
+        </section>
+    </div>
+
+</body>
+</html>

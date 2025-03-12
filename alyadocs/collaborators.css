@@ -1,0 +1,128 @@
+/* Animación de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Aplicamos la animación */
+.collaborator {
+    background: rgba(0, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.5);
+    width: 200px;
+    opacity: 0;  /* Inicia invisible */
+    transform: translateY(50px); /* Inicia más abajo */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.collaborator.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.collaborator img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 0px 5px rgba(0, 255, 255, 0.8);
+}
+/*#collaborators-container {
+    display: fixed;
+    flex-wrap: wrap;  /* Permite varias líneas si hay muchos /
+    gap: 15px;  /* Espaciado entre cada colaborador /
+    justify-content: center;  /* Centrado horizontal /
+    align-items: center;
+    padding: 20px;
+}
+
+.collaborator {
+    text-align: center;
+    width: auto;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.collaborator.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.collaborator img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 0px 5px rgba(0, 255, 255, 0.8);
+    transition: transform 0.3s ease-in-out;
+}
+
+.collaborator img:hover {
+    transform: scale(1.2); /* Efecto de zoom al pasar el mouse /
+}
+
+.collaborator h3 {
+    font-size: 14px;
+    color: cyan;
+    margin-top: 5px;
+    text-shadow: 0px 0px 5px rgba(0, 255, 255, 0.8);
+}*/
+
+#collaborators-container {
+    position: fixed; /* Cambia display: fixed a position: fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Asegura que esté detrás de otros elementos */
+    display: flex; /* Mantén display: flex para el diseño */
+    flex-wrap: wrap;  /* Permite varias líneas si hay muchos */
+    gap: 15px;  /* Espaciado entre cada colaborador */
+    justify-content: center;  /* Centrado horizontal */
+    align-items: center;
+    padding: 20px;
+    pointer-events: none; /* Opcional: para que no interfiera con la interacción del usuario */
+}
+
+.collaborator {
+    text-align: center;
+    width: auto;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    z-index: 1; /* Asegura que los elementos colaboradores sean visibles */
+}
+
+.collaborator.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.collaborator img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 0px 5px rgba(0, 255, 255, 0.8);
+    transition: transform 0.3s ease-in-out;
+}
+
+.collaborator img:hover {
+    transform: scale(1.2); /* Efecto de zoom al pasar el mouse */
+}
+
+.collaborator h3 {
+    font-size: 14px;
+    color: cyan;
+    margin-top: 5px;
+    text-shadow: 0px 0px 5px rgba(0, 255, 255, 0.8);
+}
