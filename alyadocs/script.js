@@ -7,7 +7,7 @@ document.getElementById('github').addEventListener('click', function() {
 });
 
 document.getElementById('descargar').addEventListener('click', function() {
-    window.open('https://github.com/Elpapiema/AlyaBot_MD/archive/refs/heads/main.zip', '_blank');
+    window.open('https://github.com/Elpapiema/AlyaBot_MD/releases/download/v2.2.1/alya-stable.zip', '_blank');
 });
 
 /*document.addEventListener("DOMContentLoaded", () => {
