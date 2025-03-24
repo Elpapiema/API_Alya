@@ -3,6 +3,7 @@ import yt_dlp
 import os
 import re
 from flask_cors import CORS
+import shutil
 
 app = Flask(__name__)
 CORS(app)  # Habilitar CORS para evitar bloqueos
@@ -13,6 +14,30 @@ os.makedirs(DOWNLOAD_FOLDER, exist_ok=True)
 
 # Archivo de cookies (debe estar en la misma carpeta que el script)
 COOKIES_FILE = os.path.join(os.getcwd(), "cookies.txt")
+
+# Ruta para servir el favicon
+@app.route('/favicon.png')
+def favicon():
+    return send_from_directory(
+        os.path.join(app.root_path, 'web'),
+        'icon.png',
+        mimetype='image/png'
+    )
+
+# Limpieza de la carpeta tmp al iniciar la aplicación
+def clean_tmp_folder():
+    if os.path.exists(DOWNLOAD_FOLDER):
+        for filename in os.listdir(DOWNLOAD_FOLDER):
+            file_path = os.path.join(DOWNLOAD_FOLDER, filename)
+            try:
+                if os.path.isfile(file_path) or os.path.islink(file_path):
+                    os.unlink(file_path)  # Eliminar archivos o enlaces simbólicos
+                    print(f"Archivo eliminado: {file_path}")
+                elif os.path.isdir(file_path):
+                    shutil.rmtree(file_path)  # Eliminar directorios
+                    print(f"Directorio eliminado: {file_path}")
+            except Exception as e:
+                print(f"Error al eliminar {file_path}: {e}")
 
 # Ruta para servir archivos descargados
 @app.route('/tmp/<path:filename>')
@@ -120,5 +145,8 @@ def download_video():
 def index():
     return send_from_directory('web', 'index2.html')
 
+# Llamar al script de limpieza antes de iniciar el servidor
 if __name__ == '__main__':
+    print("Iniciando limpieza de la carpeta tmp...")
+    clean_tmp_folder()
     app.run(debug=True, port=10000, host='0.0.0.0')
