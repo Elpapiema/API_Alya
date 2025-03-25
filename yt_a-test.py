@@ -4,6 +4,7 @@ import os
 import re
 from flask_cors import CORS
 import shutil
+import random
 
 app = Flask(__name__)
 CORS(app)  # Habilitar CORS para evitar bloqueos
@@ -55,7 +56,7 @@ def download_audio():
     url = request.args.get('url')
 
     if not url:
-        return jsonify({'error': 'Falta el parámetro URL'}), 400
+        return jsonify({'error': 'Falta el parametro URL'}), 400
 
     try:
         ydl_opts = {
@@ -77,9 +78,8 @@ def download_audio():
             downloaded_files.sort(key=lambda x: os.path.getctime(os.path.join(DOWNLOAD_FOLDER, x)), reverse=True)
             original_filename = downloaded_files[0]
 
-            # Generar un nombre seguro para la URL
-            safe_title = re.sub(r'[^\w\-_.]', '_', info['title'])
-            new_filename = f"{safe_title}.mp3"
+            # Generar un nombre aleatorio de hasta 10 dígitos
+            new_filename = f"{random.randint(1, 10**10)}.mp3"
             old_path = os.path.join(DOWNLOAD_FOLDER, original_filename)
             new_path = os.path.join(DOWNLOAD_FOLDER, new_filename)
 
@@ -99,7 +99,7 @@ def download_video():
     url = request.args.get('url')
 
     if not url:
-        return jsonify({'error': 'Falta el parámetro URL'}), 400
+        return jsonify({'error': 'Falta el parametro URL'}), 400
 
     try:
         ydl_opts = {
@@ -116,8 +116,8 @@ def download_video():
             downloaded_files.sort(key=lambda x: os.path.getctime(os.path.join(DOWNLOAD_FOLDER, x)), reverse=True)
             original_filename = downloaded_files[0]
 
-            safe_title = re.sub(r'[^\w\-_.]', '_', info['title'])
-            new_filename = f"{safe_title}.mp4"
+            # Generar un nombre aleatorio de hasta 10 dígitos
+            new_filename = f"{random.randint(1, 10**10)}.mp4"
             old_path = os.path.join(DOWNLOAD_FOLDER, original_filename)
             new_path = os.path.join(DOWNLOAD_FOLDER, new_filename)
 
